@@ -30,6 +30,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+
 public class Products {
 
 	@Id

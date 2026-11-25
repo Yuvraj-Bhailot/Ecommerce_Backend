@@ -6,11 +6,14 @@ import java.util.UUID;
 import com.ecommerce.util.Status;
 import com.ecommerce.util.UserRole;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,5 +41,9 @@ public class Users {
 	private LocalDateTime updateAt;
 	@Column(name = "user_role", nullable = false)
 	private UserRole userRole;
+	
+	@OneToOne(cascade = CascadeType.REMOVE)
+	@Column(name = "user_address_id")
+	private Address address;
 	
 }

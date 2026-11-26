@@ -3,7 +3,9 @@ package com.ecommerce.util;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import com.ecommerce.modules.catalog.dto.ProductVariantDto;
 import com.ecommerce.modules.catalog.dto.ProductsDto;
+import com.ecommerce.modules.catalog.entity.ProductVariant;
 import com.ecommerce.modules.catalog.entity.Products;
 import com.ecommerce.modules.identity.dto.AddressDto;
 import com.ecommerce.modules.identity.dto.UsersDto;
@@ -40,6 +42,14 @@ public class EntityMapper {
 	
 	public ProductsDto convertEntityToProductDto(Products products) {
 		return modelMapper.map(products, ProductsDto.class);
+	}
+	
+	public ProductVariant convertProductVariantDtoToEntity(ProductVariantDto productVariantDto) {
+		return modelMapper.map(productVariantDto, ProductVariant.class);
+	}
+
+	public ProductVariantDto convertEntityToProductVariantDto(ProductVariant productVariant) {
+		return modelMapper.map(productVariant, ProductVariantDto.class);
 	}
 	
 }

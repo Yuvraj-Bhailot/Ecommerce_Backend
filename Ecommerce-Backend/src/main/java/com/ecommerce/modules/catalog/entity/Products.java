@@ -1,50 +1,48 @@
 package com.ecommerce.modules.catalog.entity;
 
 import java.time.LocalDateTime;
-import java.util.Locale.Category;
-import java.util.Map;
 import java.util.UUID;
+import java.util.Locale.Category;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.type.SqlTypes;
-
+import com.ecommerce.modules.identity.entity.Seller;
 import com.ecommerce.util.Status;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-
+@Table(name = "products")
 public class Products {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 
-	@Column(nullable = false, unique = true)
-	private UUID sellerId;
+	@ManyToOne
+	@JoinColumn(name = "seller_id", nullable = false)
+	private Seller seller;
 
 	@Column(nullable = false)
 	private String title;
 	
-	private String description; 
+	@Column(nullable = false, unique = true, length = 260)
+	private String slug;
 
+	private String description;
+
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Status status;
 

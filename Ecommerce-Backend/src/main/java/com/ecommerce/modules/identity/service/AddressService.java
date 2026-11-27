@@ -10,8 +10,11 @@ import com.ecommerce.modules.identity.dto.AddressDto;
 public interface AddressService {
 	
 	public ResponseEntity<Void> updateAddress(AddressDto addressDto);
+
 	public ResponseEntity<Void> removeAddress(UUID id);
+
 	public ResponseEntity<AddressDto> getAddressById(UUID id);
+
 	public ResponseEntity<List<AddressDto>> getAllAddress();
 	
 }

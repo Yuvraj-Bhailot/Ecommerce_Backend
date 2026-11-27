@@ -46,7 +46,7 @@ public class Users {
 	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 	
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne(cascade = CascadeType.ALL)
 	@Column(name = "user_address_id")
 	private Address address;
 	

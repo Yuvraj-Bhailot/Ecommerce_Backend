@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import java.util.Locale.Category;
 
-import com.ecommerce.modules.identity.entity.Seller;
+import com.ecommerce.modules.inventory.entity.Inventory;
 import com.ecommerce.util.Status;
 
 import jakarta.persistence.Column;
@@ -31,8 +31,8 @@ public class Products {
 	private UUID id;
 
 	@ManyToOne
-	@JoinColumn(name = "seller_id", nullable = false)
-	private Seller seller;
+	@JoinColumn(name = "inventory_id", nullable = false)
+	private Inventory inventory;
 
 	@Column(nullable = false)
 	private String title;

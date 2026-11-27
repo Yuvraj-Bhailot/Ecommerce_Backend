@@ -18,8 +18,6 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
-	@Column(name = "user_name")
-	private String userName;
 	@Column(name = "house_number")
 	private String houseNumber;
 	private String area;

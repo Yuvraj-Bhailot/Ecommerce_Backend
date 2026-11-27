@@ -9,6 +9,8 @@ import com.ecommerce.util.UserRole;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,6 +34,7 @@ public class Users {
 	private String name;
 	@Column(unique = true)
 	private Long phone;
+	@Enumerated(EnumType.STRING)
 	private Status status;
 	@Column(name = "email_verified_at")
 	private LocalDateTime emailVerifiedAt;
@@ -40,6 +43,7 @@ public class Users {
 	@Column(name = "update_at")
 	private LocalDateTime updateAt;
 	@Column(name = "user_role", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private UserRole userRole;
 	
 	@OneToOne(cascade = CascadeType.REMOVE)

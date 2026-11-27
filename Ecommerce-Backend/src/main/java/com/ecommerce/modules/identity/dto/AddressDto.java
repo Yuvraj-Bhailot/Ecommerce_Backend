@@ -13,7 +13,6 @@ import lombok.Setter;
 public class AddressDto {
 
 	private UUID id;
-	private String userName;
 	@NotNull
 	@NotBlank
 	private String houseNumber;

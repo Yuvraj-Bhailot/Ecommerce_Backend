@@ -32,6 +32,8 @@ public class UsersDto {
 	@Digits(integer = 10, fraction = 0)
 	@Min(6000000000L)
 	private Long phone;
+	@NotNull
+	@NotBlank
 	private Status status;
 	private LocalDateTime emailVerifiedAt;
 	private LocalDateTime createdAt;
